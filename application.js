@@ -1,6 +1,8 @@
 const express = require('express');
+const routes = require('./src/routes/crmRoutes');
 const app = express();
 const PORT = 3333;
+routes(app);
 app.get(
     '/',
     (req, res, next) => {
