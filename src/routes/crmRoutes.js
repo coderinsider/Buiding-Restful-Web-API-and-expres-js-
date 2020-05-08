@@ -1,17 +1,12 @@
-const { addNewContact } = require('../controllers/crmControllers');
+const { addNewContact, getContact } = require('../controllers/crmControllers');
 const routes = (app) => {
     app.route('/contact')
-        .get(
-            (req, res, next) => {
-                // middleware
-                console.log(`Request from: ${req.originalUrl}`);
-                console.log(`Request method ${req.method}`);
-                return next();
-            },
-            (req, res) => {
-                res.send(`Get request successfully`);
-            }
-        )
+        .get((req, res, next) => {
+            // middleware
+            console.log(`Request from: ${req.originalUrl}`);
+            console.log(`Request method ${req.method}`);
+            return next();
+        }, getContact)
         // POST endpoint
         .post(addNewContact);
 
