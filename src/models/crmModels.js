@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-export const contactSchema = new Schema({
+export const ContactSchema = new Schema({
     firstName: {
         type: String,
         required: 'Enter a first name',

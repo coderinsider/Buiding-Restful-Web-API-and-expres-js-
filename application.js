@@ -6,11 +6,12 @@ const PORT = 3333;
 const bodyParser = require('body-parser');
 // Mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/CRMdb'{
+mongoose.connect('mongodb://localhost:27017/crmDB', {
     useMongoClient: true,
 });
+
 // body parser setup
-app.use(bodyParser.urlencoded({extends: true})
+app.use(bodyParser.urlencoded({ extends: true }));
 app.use(bodyParser.json());
 routes(app);
 app.get(
