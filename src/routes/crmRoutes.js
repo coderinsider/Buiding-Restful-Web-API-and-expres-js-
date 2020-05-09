@@ -4,6 +4,8 @@ const {
     getContactID,
     updateContact,
     deleteContact,
+    addNewUser,
+    getUsers,
 } = require('../controllers/crmControllers');
 const routes = (app) => {
     app.route('/contact')
@@ -24,5 +26,7 @@ const routes = (app) => {
 
         // Delete request
         .delete(deleteContact);
+
+    app.route('/users').get(getUsers).post(addNewUser);
 };
 module.exports = routes;

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-const { ContactSchema } = require('../models/crmModels');
+const { ContactSchema, UserSchema } = require('../models/crmModels');
 const Contact = mongoose.model('Contact', ContactSchema);
+const Users = mongoose.model('Users', UserSchema);
 export const addNewContact = (req, res) => {
     let newContact = new Contact(req.body);
     newContact.save((err, contact) => {
@@ -10,7 +11,16 @@ export const addNewContact = (req, res) => {
         res.json(contact);
     });
 };
-
+export const addNewUser = (req, res) => {
+    let newContact = new Users(req.body);
+    newContact.save((err, contact) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(contact);
+    });
+};
+////////////////
 export const getContact = (req, res) => {
     Contact.find({}, (err, contact) => {
         if (err) {
@@ -19,7 +29,15 @@ export const getContact = (req, res) => {
         res.json(contact);
     });
 };
-
+export const getUsers = (req, res) => {
+    Users.find({}, (err, contact) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(contact);
+    });
+};
+////////////////
 export const getContactID = (req, res) => {
     Contact.findById(req.params.contactId, (err, contact) => {
         if (err) {

@@ -23,3 +23,22 @@ export const ContactSchema = new Schema({
         default: Date.now,
     },
 });
+
+export const UserSchema = new Schema({
+    studentName: {
+        type: String,
+    },
+    studentEmail: {
+        type: String,
+    },
+    studentAge: {
+        type: Number,
+    },
+    studentAddress: {
+        type: String,
+    },
+    created_at: {
+        type: Date,
+        default: Date.now,
+    },
+});
