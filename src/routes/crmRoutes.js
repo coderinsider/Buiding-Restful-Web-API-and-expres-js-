@@ -3,6 +3,7 @@ const {
     getContact,
     getContactID,
     updateContact,
+    deleteContact,
 } = require('../controllers/crmControllers');
 const routes = (app) => {
     app.route('/contact')
@@ -22,8 +23,6 @@ const routes = (app) => {
         .put(updateContact)
 
         // Delete request
-        .delete((req, res) => {
-            res.send(`Delete request successfully`);
-        });
+        .delete(deleteContact);
 };
 module.exports = routes;
