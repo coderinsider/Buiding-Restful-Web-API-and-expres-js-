@@ -14,6 +14,12 @@ mongoose.connect('mongodb://localhost:27017/crmDB', {
 app.use(bodyParser.urlencoded({ extends: true }));
 app.use(bodyParser.json());
 routes(app);
+
+/*
+ * Serving static files
+ */
+
+app.use(express.static('public'));
 app.get(
     '/',
     (req, res, next) => {
