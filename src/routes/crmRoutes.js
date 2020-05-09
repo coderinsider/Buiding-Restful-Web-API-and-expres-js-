@@ -2,6 +2,7 @@ const {
     addNewContact,
     getContact,
     getContactID,
+    updateContact,
 } = require('../controllers/crmControllers');
 const routes = (app) => {
     app.route('/contact')
@@ -18,9 +19,7 @@ const routes = (app) => {
         // get specific contact
         .get(getContactID)
         // put request
-        .put((req, res) => {
-            res.send(`Edit request successfully`);
-        })
+        .put(updateContact)
 
         // Delete request
         .delete((req, res) => {
